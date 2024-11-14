@@ -378,7 +378,7 @@ export const query = graphql`
       }
     }
     lasSoluciones: allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "4a666917-270e-58f5-9cac-efda5d13ac66"}}
+      filter: {frontmatter: {}, id: {eq: "5c68bc63-f3b5-531c-8de5-25324a9a6123"}}
     ) {
       nodes {
         frontmatter {
@@ -388,14 +388,14 @@ export const query = graphql`
         id
       }
     }
-    imagenSoluciones: allImageSharp(filter: {id: {eq: "83de82b7-e16b-55ee-b6e0-1aa473d731eb"}}) {
+    imagenSoluciones: allImageSharp(filter: {id: {eq: "0b393156-1b4c-559f-8053-09f4656c63a2"}}) {
       nodes {
         gatsbyImageData
         id
       }
     }
     solucionHardware:allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "f22b2324-ca4e-5dfa-8d4e-5e51e2298149"}}
+      filter: {frontmatter: {}, id: {eq: "2182a19e-9152-5be6-99f9-8f9de25ab518"}}
     ) {
       nodes {
         frontmatter {
@@ -407,7 +407,7 @@ export const query = graphql`
       }
     }
     solucionSoftware:allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "4dd7fa4b-045c-5d04-be65-10cf879f31fe"}}
+      filter: {frontmatter: {}, id: {eq: "e9eec46e-eaeb-50f5-b0fd-a600cda50731"}}
     ) {
       nodes {
         frontmatter {
@@ -419,7 +419,7 @@ export const query = graphql`
       }
     }
     solucionPersonalizada:allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "72f7daf6-ab21-58a9-8a9f-98001e0929f5"}}
+      filter: {frontmatter: {}, id: {eq: "5c68bc63-f3b5-531c-8de5-25324a9a6123"}}
     ) {
       nodes {
         frontmatter {
