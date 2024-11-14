@@ -124,7 +124,7 @@ export default function Inicio({data}){
           <div className="max1400">
           {industrias.map(industria => (
             <div key={industria.id} className={styles.industria}>
-              <img src={`${industria.frontmatter.icono_industria}`} alt={industria.frontmatter.nombre_industria}/>
+              <img src={`/assets/industrias/${industria.frontmatter.icono_industria}`} alt={industria.frontmatter.nombre_industria}/>
               <div>
                 <h3>{industria.frontmatter.nombre_industria}</h3>
                 <p>{industria.frontmatter.descripcion_industria}</p>
@@ -314,7 +314,7 @@ export default function Inicio({data}){
 
 export const query = graphql`
   query ElHero {
-    hero: allMarkdownRemark(filter: {id: {eq: "44b63269-176d-5c3f-a17e-a579748fd55a"}}) {
+    hero: allMarkdownRemark(filter: {frontmatter: {apartado: {eq: "hero"}}}) {
       nodes {
         html
         frontmatter {
@@ -338,7 +338,7 @@ export const query = graphql`
         id
       }
     }
-    losDiferenciadores: allMarkdownRemark(filter: {id: {eq: "27db088b-a63d-5630-af50-ad903ebbec5a"}}) {
+    losDiferenciadores: allMarkdownRemark(filter: {frontmatter: {apartado: {eq: "diferenciadores"}}}) {
       nodes {
         html
         id
@@ -350,7 +350,7 @@ export const query = graphql`
         }
       }
     }
-    losDivisores: allImageSharp(filter: {id: {eq: "50eb5ae8-6907-577f-9790-dbfa9c3ae516"}}) {
+    losDivisores: allImageSharp(filter: {id: {eq: "54c1252d-345b-5ddb-affa-8fb7214935dd"}}) {
       nodes {
         gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH, formats: AUTO)
         id
