@@ -1,4 +1,5 @@
 ---
+dataid: solucionSoftware
 apartado: soluciones
 numero de solucion: 2
 titulo de la solucion: Soluciones de software

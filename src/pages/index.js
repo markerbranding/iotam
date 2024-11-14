@@ -11,7 +11,7 @@ import ScrollTrigger from "gsap/ScrollTrigger"
 
 /* import Canvas from "../components/Canvas" */
 import CustomAcordeon from "../components/Acordeon"
-
+/* eslint-disable jsx-a11y/media-has-caption */
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -183,7 +183,7 @@ export default function Inicio({data}){
           
           <div id="videoHolder">
             <div id="innerVideoHolder">
-              <video id="miVideo" className="miVideo" src={solucionVideo} playsinline="true" webkit-playsinline="true" preload="metadata" muted="muted"><track></track></video>
+              <video id="miVideo" className="miVideo" src={solucionVideo} playsInline={true} webkit-playsinline="true" preload="metadata" muted="muted"><track></track></video>
             </div>
           </div>
           
@@ -261,27 +261,27 @@ export default function Inicio({data}){
                 <div className={styles.contactoLeftA}>
                   <div dangerouslySetInnerHTML={{ __html: contacto.html }} />
                   <ul>
-                    <li>Teléfono: <Link to={`tel:${contacto.frontmatter.telefono}`}>{contacto.frontmatter.telefono}</Link></li>
-                    <li>Correo electrónico: <Link to={`mailto:${contacto.frontmatter.correo}`}>{contacto.frontmatter.correo}</Link></li>
-                    <li>Oficinas: <Link to={`${contacto.frontmatter.url_maps}`} target="_blank">{contacto.frontmatter.direccion}</Link></li>
+                    <li>Teléfono: <a href={`tel:${contacto.frontmatter.telefono}`}>{contacto.frontmatter.telefono}</a></li>
+                    <li>Correo electrónico: <a href={`mailto:${contacto.frontmatter.correo}`}>{contacto.frontmatter.correo}</a></li>
+                    <li>Oficinas: <a href={`${contacto.frontmatter.url_maps}`} target="_blank" rel="noreferrer">{contacto.frontmatter.direccion}</a></li>
                   </ul>
                 </div>
                 <div className={styles.contactoLeftB}>
-                  <Link to={`${contacto.frontmatter.linkedin}`} target="_blank">
+                  <a href={`${contacto.frontmatter.linkedin}`} target="_blank" rel="noreferrer">
                     {linkedin.map(linked => (
                       <img key={linked.id} className={styles.socialIcon} src={linked.publicURL} alt="LinkedIn de IOTAM"/>
                     ))}
-                  </Link>
-                  <Link to={`${contacto.frontmatter.facebook}`} target="_blank">
+                  </a>
+                  <a href={`${contacto.frontmatter.facebook}`} target="_blank" rel="noreferrer">
                     {facebook.map(face => (
                       <img key={face.id} className={styles.socialIcon} src={face.publicURL} alt="Facebook de IOTAM"/>
                     ))}
-                  </Link>
-                  <Link to={`${contacto.frontmatter.instagram}`} target="_blank">
+                  </a>
+                  <a href={`${contacto.frontmatter.instagram}`} target="_blank" rel="noreferrer">
                     {instagram.map(insta => (
                       <img key={insta.id} className={styles.socialIcon} src={insta.publicURL} alt="Instagram de IOTAM"/>
                     ))}
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
@@ -382,7 +382,7 @@ export const query = graphql`
       }
     }
     lasSoluciones: allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "5c68bc63-f3b5-531c-8de5-25324a9a6123"}}
+      filter: {frontmatter: {dataid: {eq: "solucionIntro"}}}
     ) {
       nodes {
         frontmatter {
@@ -399,7 +399,7 @@ export const query = graphql`
       }
     }
     solucionHardware:allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "2182a19e-9152-5be6-99f9-8f9de25ab518"}}
+      filter: {frontmatter: {dataid: {eq: "solucionHardware"}}}
     ) {
       nodes {
         frontmatter {
@@ -411,7 +411,7 @@ export const query = graphql`
       }
     }
     solucionSoftware:allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "e9eec46e-eaeb-50f5-b0fd-a600cda50731"}}
+      filter: {frontmatter: {dataid: {eq: "solucionSoftware"}}}
     ) {
       nodes {
         frontmatter {
@@ -423,7 +423,7 @@ export const query = graphql`
       }
     }
     solucionPersonalizada:allMarkdownRemark(
-      filter: {frontmatter: {}, id: {eq: "5c68bc63-f3b5-531c-8de5-25324a9a6123"}}
+      filter: {frontmatter: {dataid: {eq: "solucionPersonalizada"}}}
     ) {
       nodes {
         frontmatter {

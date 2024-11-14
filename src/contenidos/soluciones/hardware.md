@@ -1,4 +1,5 @@
 ---
+dataid: solucionHardware
 apartado: soluciones
 numero de solucion: 1
 titulo de la solucion: Soluciones de hardware

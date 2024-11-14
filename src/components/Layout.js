@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef, useLayoutEffect } from "react";
 import Navbar from "./Navbar"
 import '../../src/styles/global.css'
 import { Link } from "gatsby"
@@ -6,8 +6,8 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import ScrollSmoother  from "gsap/ScrollSmoother"
 import ScrollToPlugin  from "gsap/ScrollToPlugin"
-import { useGSAP } from "@gsap/react"
-import { useRef } from "react"
+//import { useGSAP } from "@gsap/react"
+//import { useRef } from "react"
 
 
 if (typeof window !== "undefined") {
@@ -18,14 +18,19 @@ export default function Layout({children}) {
 
     /*  GSAP  */
     const container = useRef();
+    const wrapperRef = useRef(null);
+    const contentRef = useRef(null);
 
-    useGSAP((spline) => {
-
-        ScrollSmoother.create({
-            smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-            effects: true, // looks for data-speed and data-lag attributes on elements
-            smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
-          });
+    useLayoutEffect(() => {
+        if (!ScrollSmoother.get()) {
+            ScrollSmoother.create({
+                wrapper: wrapperRef.current,
+                content: contentRef.current,
+                smooth: 1,
+                effects: true,
+                smoothTouch: 0.1,
+            });
+        }
     
         const tl = gsap.timeline();
         tl.to(".navbar", {scrollTrigger: {trigger:"#contenedor", start: 'top top', end: "+=999999999999999", pin:'.navbar', pinSpacing: false},});
@@ -74,7 +79,7 @@ export default function Layout({children}) {
             scrub: true,
             pin: "#videoHolder",
         },
-        onUpdate: () => console.log(videoElement.currentTime)
+        //onUpdate: () => console.log(videoElement.currentTime)
         });
     
         function videoScrub(video, vars) {
@@ -100,7 +105,7 @@ export default function Layout({children}) {
 
 
     
-    }, { scope: container }); // <-- scope is for selector text (optional)
+    }, []);
     
     return (
         <div id="smooth-wrapper">
@@ -119,7 +124,7 @@ export default function Layout({children}) {
                                 <span>IOTAM © | </span>
                                 <Link to="../aviso.js">Aviso de privacidad</Link>
                                 <span> | Sitio creado por </span>
-                                <Link to="https://marker.com.mx" target="_blank">MARKER Branding</Link>
+                                <a href="https://marker.com.mx" target="_blank" rel="noreferrer">MARKER Branding</a>
                             </div>
                         </footer> 
                     </div>
