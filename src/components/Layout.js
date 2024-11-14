@@ -64,7 +64,7 @@ export default function Layout({children}) {
         });
         
         // Video Drag
-        console.clear();
+        //console.clear();
         const videoElement = document.querySelector(".miVideo");
         videoScrub(videoElement, {
         scrollTrigger: {

@@ -74,32 +74,53 @@ export default function Inicio({data}){
           
         </div>
       </section>
+
+
+      <section className={styles.sectionNosotros} id="sectionNosotros">
+        <div className={styles.column2}>
+          <div className={styles.colLeft}>
+            {nosotros.map(nuestro => (
+              <div key={nuestro.id}>
+                <div dangerouslySetInnerHTML={{ __html: nuestro.html }} />
+              </div>
+            ))}
+          </div>
+          <div className={styles.colRight}>
+            {imagenNosotros.map(imgNosotros => (
+              <GatsbyImage key={imgNosotros.id} className={`${styles.imagenNosotros} imgNosotros`} image={getImage(imgNosotros.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+            ))}
+          </div>
+        </div>
+      </section>
       
       
       <section className={styles.diferenciadores} id="sectionDiferenciadores">
         {diferenciadores.map(diferenciador => (
-          <div className={styles.column2}>
+          <div key={diferenciador.id} className={styles.column2}>
+
             <div className={styles.colLeft}>
+              
+              <div className={styles.diferenciador}>
+                <p>{diferenciador.frontmatter.diferenciador1}</p>
+              </div>
+              <div className={styles.diferenciador}>
+                <p>{diferenciador.frontmatter.diferenciador2}</p>
+              </div>
+              <div className={styles.diferenciador}>
+                <p>{diferenciador.frontmatter.diferenciador3}</p>
+              </div>
+              <div className={styles.diferenciador}>
+                <p>{diferenciador.frontmatter.diferenciador4}</p>
+              </div>
+            
+            </div>
+
+            <div className={styles.colRight}>
               
               <div dangerouslySetInnerHTML={{ __html: diferenciador.html }} />
               <Link to="/">Descargar brochure</Link>
             </div>
-            <div className={styles.colRight}>
-              
-                <div className={styles.diferenciador}>
-                  <p>{diferenciador.frontmatter.diferenciador1}</p>
-                </div>
-                <div className={styles.diferenciador}>
-                  <p>{diferenciador.frontmatter.diferenciador2}</p>
-                </div>
-                <div className={styles.diferenciador}>
-                  <p>{diferenciador.frontmatter.diferenciador3}</p>
-                </div>
-                <div className={styles.diferenciador}>
-                  <p>{diferenciador.frontmatter.diferenciador4}</p>
-                </div>
-              
-            </div>
+            
           </div>
         ))}
       </section>
@@ -117,7 +138,7 @@ export default function Inicio({data}){
 
         <div className={styles.column1}>
           {mercados.map(mercado => (
-            <div dangerouslySetInnerHTML={{ __html: mercado.html }} />
+            <div key={mercado.id} dangerouslySetInnerHTML={{ __html: mercado.html }} />
           ))}
         </div>
         <div className={`${styles.column1} ${styles.listadoIndustrias}`}>
@@ -149,7 +170,7 @@ export default function Inicio({data}){
           </div>
           <div className={styles.colRight}>
             {imagenSoluciones.map(imagenSolucion => (
-              <GatsbyImage className={`${styles.imagenSolucion} imgSolucion`} image={getImage(imagenSolucion.gatsbyImageData)} alt="Soluciones en tecnología IOT de confianza" />
+              <GatsbyImage key={imagenSolucion.id} className={`${styles.imagenSolucion} imgSolucion`} image={getImage(imagenSolucion.gatsbyImageData)} alt="Soluciones en tecnología IOT de confianza" />
             ))}
           </div>
           
@@ -228,23 +249,6 @@ export default function Inicio({data}){
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.sectionNosotros} id="sectionNosotros">
-        <div className={styles.column2}>
-          <div className={styles.colLeft}>
-            {nosotros.map(nuestro => (
-              <div key={nuestro.id}>
-                <div dangerouslySetInnerHTML={{ __html: nuestro.html }} />
-              </div>
-            ))}
-          </div>
-          <div className={styles.colRight}>
-            {imagenNosotros.map(imgNosotros => (
-              <GatsbyImage key={imgNosotros.id} className={`${styles.imagenNosotros} imgNosotros`} image={getImage(imgNosotros.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
-            ))}
           </div>
         </div>
       </section>

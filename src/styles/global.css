@@ -69,12 +69,14 @@ h2{
   }
 
   .navBg{
-    background-color: #033637e8;
+    background-color: #033637b1;
     padding: 15px 60px !important;
     width: calc(100% - 240px) !important;
     left: 60px !important;
     border-radius: 0px 0px 20px 20px;
     border: 1px solid #1d5948;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   }
 
   .logo a{
@@ -91,7 +93,7 @@ h2{
     height: 50px;
   }
 
-  nav a {
+  nav button {
     display: flex;
     flex-direction: row !important;
     justify-content: center;
@@ -100,12 +102,13 @@ h2{
     padding: 0px 20px;
     margin-left: 0px;
     font-weight: 400;
-    border-bottom: 0px solid transparent;
+    border: 0px solid transparent;
+    background-color: transparent;
     font-size: 20px;
     color:#fff;
     cursor: pointer;
   }
-  nav a:hover {
+  nav button:hover {
     color:#00c08b;
   }
   footer p{
@@ -121,8 +124,10 @@ h2{
 
   .cotizaBtn{
     margin-left: 50px;
+    font-size: 20px;
     background-color: #07e7a7;
-    height: 50px;
+    height: auto;
+    padding: 5px 10px;
     border-radius: 10px;
     color:#0b1818;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;

@@ -30,19 +30,19 @@ export default function Navbar() {
             </div>
 
             <div className='linksNav'>
-                <Link id="aInicio" >Inicio</Link>
-                <Link id="aDiferenciadores" >Diferenciadores</Link>
-                <Link id="aIndustrias" >Industrias</Link>
-                <Link id="aSoluciones" >Soluciones</Link>
-                <Link id="aNosotros">Nosotros</Link>
-                <Link id="aContacto" >Contacto</Link>
+                <button id="aInicio" >Inicio</button>
+                <button id="aNosotros">Nosotros</button>
+                <button id="aDiferenciadores" >Diferenciadores</button>
+                <button id="aIndustrias" >Industrias</button>
+                <button id="aSoluciones" >Soluciones</button>
+                <button id="aContacto" >Contacto</button>
             </div>
 
             <div>
                 {whatsApps.map(whatsApp => (
-                    <Link key={whatsApp.childMarkdownRemark.id} className='cotizaBtn' to={`https://wa.me/521${whatsApp.childMarkdownRemark.frontmatter.whatsapp}`} target="_blank" >
+                    <a key={whatsApp.childMarkdownRemark.id} className='cotizaBtn' href={`https://wa.me/521${whatsApp.childMarkdownRemark.frontmatter.whatsapp}`} target="_blank" rel="noreferrer">
                         Mensaje
-                    </Link>
+                    </a>
                 ))}
             </div>
         </nav>   

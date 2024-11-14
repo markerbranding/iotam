@@ -150,6 +150,47 @@
     border-radius: 20px;
 }
 
+/*  Nosotros */
+
+.sectionNosotros {
+    width: calc(100% - 120px);
+    padding: 0px 60px 0px;
+}
+
+.sectionNosotros .column2{
+    background-color: #d4fff0;
+    padding: 60px;
+    border-radius: 20px 20px 0px 0px;
+    width: calc(100% - 120px);
+    .colLeft{
+        justify-content: center;
+    }
+}
+
+.sectionNosotros h2{
+    color:#00c08b;
+}
+
+.sectionNosotros h3{
+    font-size: 1.5vw;
+    font-weight: 500;
+}
+
+.sectionNosotros p{
+    color:#005d52;
+}
+
+.sectionNosotros strong{
+    color:#005d52;
+}
+
+.imagenNosotros{
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
 /*  Diferenciadores */
 
 .diferenciadores{
@@ -157,6 +198,7 @@
     padding: 0 60px;
     /*background-color: #7b8e95;*/
     position: relative;
+    margin-top: -3px;
 }
 
 /*.diferenciadores::before{
@@ -173,7 +215,7 @@
 }*/
 
 .diferenciadores h2{
-    color:#c6e5db;
+    /*color:#c6e5db;*/
 }
 
 .diferenciadores h2 strong, .diferenciadores p strong{
@@ -181,24 +223,24 @@
 }
 
 .diferenciadores p{
-    color:#c6e5db;
+    /*color:#c6e5db;*/
+    color: #005d52;
+    strong{
+        color: #005d52;
+    }
 }
 
 .diferenciadores > .column2{
     width: calc(100% - 120px);
     height: calc(100% - 0px);
     padding: 10% 60px;
-    border-radius: 20px;
+    border-radius: 0px 0px 20px 20px;
     z-index: 2;
     position: relative;
-    /*background-color: #7b8e95;*/
+    background-color: #d4fff0;
 }
 
 .diferenciadores .colLeft{
-    position: relative;
-}
-
-.diferenciadores .colRight{
     width: 50%;
     padding-left: 0%;
     flex-direction: row;
@@ -207,9 +249,14 @@
     flex-wrap: wrap;
 }
 
+.diferenciadores .colRight{
+    position: relative;
+    justify-content: center;
+}
+
 .diferenciador{
     position: relative;
-    background-color: #0f403c;
+    background-color: #bdeedd;
     width: calc(45% - 40px);
     height: 300px;
     border-radius: 20px;
@@ -455,44 +502,6 @@
 
 .acordeon{
     width: 100%;
-}
-
-/*  Nosotros */
-
-.sectionNosotros {
-    width: calc(100% - 120px);
-    padding: 0px 60px 60px;
-}
-
-.sectionNosotros .column2{
-    background-color: #fff;
-    padding: 60px;
-    border-radius: 20px;
-    width: calc(100% - 120px);
-}
-
-.sectionNosotros h2{
-    color:#00c08b;
-}
-
-.sectionNosotros h3{
-    font-size: 1.5vw;
-    font-weight: 500;
-}
-
-.sectionNosotros p{
-    color:#005d52;
-}
-
-.sectionNosotros strong{
-    color:#005d52;
-}
-
-.imagenNosotros{
-    height: 70vh;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
 }
 
 /*  Contacto */
