@@ -354,7 +354,7 @@ export const query = graphql`
         }
       }
     }
-    losDivisores: allImageSharp(filter: {id: {eq: "54c1252d-345b-5ddb-affa-8fb7214935dd"}}) {
+    losDivisores: allImageSharp(filter: {id: {}, fluid: {originalName: {eq: "chip_manufacturing.jpg"}}}) {
       nodes {
         gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH, formats: AUTO)
         id
