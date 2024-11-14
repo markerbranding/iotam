@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700&display=swap');
+
+* { 
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Cairo";
+  color: #00c08b;
+}
+html, body {
+  min-height: 100%;
+  
+}
+body {
+    background-color: #032526 !important;
+}
+
+p, li {
+  margin: 16px auto;
+  line-height: 1.5em;
+  font-size: 1.2vw;
+  font-weight: 300;
+}
+
+a {
+  line-height: 1.5em;
+  font-size: 1.2vw;
+  font-weight: 300;
+}
+
+h2{
+  font-size: 2.4vw;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* layout & nav */
+.layout {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+.max1400{
+    max-width: 1400px;
+}
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px auto;
+    padding: 25px 60px;
+    position: absolute;
+    width: calc(100% - 120px);
+    z-index: 50;
+    background-color: #032526;
+    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out, width 0.3s ease-in-out, left 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  }
+  nav h2{
+    font-size: 40px;
+  }
+  nav .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+  }
+
+  .navBg{
+    background-color: #033637e8;
+    padding: 15px 60px !important;
+    width: calc(100% - 240px) !important;
+    left: 60px !important;
+    border-radius: 0px 0px 20px 20px;
+    border: 1px solid #1d5948;
+  }
+
+  .logo a{
+    padding: 0;
+  }
+
+  .logo img{
+    height: 60px;
+    width: auto;
+    transition: height 0.3s ease-in-out;
+  }
+
+  .navBg .logo img{
+    height: 50px;
+  }
+
+  nav a {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 0px 20px;
+    margin-left: 0px;
+    font-weight: 400;
+    border-bottom: 0px solid transparent;
+    font-size: 20px;
+    color:#fff;
+    cursor: pointer;
+  }
+  nav a:hover {
+    color:#00c08b;
+  }
+  footer p{
+    text-align: center;
+    color: #bbb;
+    margin: 40px auto;
+  }
+
+  .linksNav{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .cotizaBtn{
+    margin-left: 50px;
+    background-color: #07e7a7;
+    height: 50px;
+    border-radius: 10px;
+    color:#0b1818;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+  .cotizaBtn:hover{
+    color:#0b1818;
+    background-color: #75ffc5;
+  }
+
+  canvas{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    
+    object-fit: contain;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+  }
+
+  .pin-spacer{
+    width: 100% !important;
+  }
+
+  #videoHolder{
+    height: 100vh;
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #innerVideoHolder{
+    height: auto;
+    width: 100%;
+    -webkit-mask-image:url(../images/mascara_video.png);
+    -webkit-mask-position:left top;
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-size:100%;
+  
+    mask-image:url(../images/mascara_video.png);
+    mask-position:left top;
+    mask-repeat:no-repeat;
+    mask-size:100%;
+  }
+
+  #miVideo{
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+  }
+
+  footer{
+    width: calc(100% - 120px);
+    padding: 0 60px;
+    margin-top: -3px;
+  }
+
+  footer .column1{
+    width: calc(100% - 120px);
+    background-color: #062d2d;
+    text-align: center;
+    padding: 60px;
+    position: relative;
+  }
+
+  footer .line{
+    width: calc(100% - 120px);
+    height: 1px;
+    background-color: #02936a;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    left: 60px;
+    display: block;
+  }
+
+  footer span{
+    font-size: 16px;
+    color:#02936a;
+  }
+
+  footer a{
+    font-size: 16px;
+    color:#00c08b;
+  }
+
+  footer a:hover{
+    color:#2cedb7;
+    text-decoration: underline;
+  }
+
+@media (max-width: 1700px) {
+  h2{
+    font-size: 38px;
+  }
+
+  h3{
+    font-size: 26px;
+  }
+
+  p, a{
+    font-size: 20px;
+  }
+
+  nav a{
+    font-size: 17px;
+    padding: 0px 10px;
+  }
+
+  .logo img{
+    height: 45px;
+  }
+
+  .navBg{
+    padding: 10px 30px !important;
+    width: calc(100% - 180px) !important;
+  }
+
+  .navBg .logo img{
+    height: 35px;
+  }
+
+  .cotizaBtn{
+    margin-left: 0px;
+    height: 40px;
+  }
+
+}
+
+@media (max-width: 1080px) {
+
+  h2{
+    font-size: 30px;
+  }
+
+  h3{
+    font-size: 20px;
+  }
+
+  p, a{
+    font-size: 18px;
+  }
+
+  nav{
+    width: calc(100% - 60px) !important;
+    padding: 15px 30px !important;
+  }
+
+  .navBg{
+    padding: 10px 30px !important;
+    width: calc(100% - 120px) !important;
+    left: 30px !important;
+  }
+
+    .logo img, .navBg .logo img {
+        height: 45px;
+    }
+
+    .linksNav{
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      flex-direction: column;
+      background-color: #0b1818;
+      top: 0;
+      right: calc(-100vw - 60px);
+    }
+
+    
+
+    .cotizaBtn{
+      height: 40px;
+    }
+
+    nav a{
+      font-size: 18px;
+    }
+
+    footer .line{
+      width: calc(100% - 60px);
+      left: 30px;
+    }
+}
+
+
+
+@media (max-width: 850px) {
+
+  #videoHolder{
+    width: 100vw !important;
+    height: 40vh !important;
+    background-color: #032526;
+  }
+
+  #innerVideoHolder{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  h2{
+    font-size: 26px;
+  }
+  footer .column1{
+    width: calc(100% - 60px);
+    padding: 30px;
+  }
+  footer span, footer a{
+    font-size: 14px;
+    line-height: 1;
+  }
+}
