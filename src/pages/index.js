@@ -145,7 +145,7 @@ export default function Inicio({data}){
           <div className="max1400">
           {industrias.map(industria => (
             <div key={industria.id} className={styles.industria}>
-              <img src={`/assets/industrias/${industria.frontmatter.icono_industria}`} alt={industria.frontmatter.nombre_industria}/>
+              <img src={`/${industria.frontmatter.icono_industria}`} alt={industria.frontmatter.nombre_industria}/>
               <div>
                 <h3>{industria.frontmatter.nombre_industria}</h3>
                 <p>{industria.frontmatter.descripcion_industria}</p>
@@ -392,7 +392,7 @@ export const query = graphql`
         id
       }
     }
-    imagenSoluciones: allImageSharp(filter: {id: {eq: "0b393156-1b4c-559f-8053-09f4656c63a2"}}) {
+    imagenSoluciones: allImageSharp(filter: {id: {}, fluid: {originalName: {eq: "iotam_soluciones.jpg"}}}) {
       nodes {
         gatsbyImageData
         id
