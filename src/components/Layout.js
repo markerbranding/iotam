@@ -48,9 +48,13 @@ export default function Layout({children}) {
         const aSoluciones = document.getElementById('aSoluciones');
         const aNosotros = document.getElementById('aNosotros');
         const aContacto = document.getElementById('aContacto');
+        const aHero = document.getElementById('btn__hero');
 
         aInicio.addEventListener('click', function(){
             gsap.to(window, { duration: 0.5, scrollTo: {y: "#sectionInicio", offsetY: 100} });
+        });
+        aHero.addEventListener('click', function(){
+            gsap.to(window, { duration: 0.5, scrollTo: {y: "#sectionNosotros", offsetY: 0} });
         });
         aDiferenciadores.addEventListener('click', function(){
             gsap.to(window, { duration: 0.5, scrollTo: {y: "#sectionDiferenciadores", offsetY: 100} });

@@ -48,30 +48,31 @@ export default function Inicio({data}){
     <Layout>
       <div>
       <section className={styles.hero} id="sectionHero">
-        <div className={styles.column1}>
+        <div className={styles.column2}>
+          <div className={styles.colLeft}>
           {heros.map(hero => (
             <div key={hero.id} className="max1400">
               <h1>{hero.frontmatter.titulo}</h1>
               <div dangerouslySetInnerHTML={{ __html: hero.html }} />
               <p>{hero.frontmatter.subtitulo}</p>
-                <Link className={styles.btnHero} to="#sectionSoluciones">
-                  {btnHeros.map(btnHero => (
-                    <img key={btnHero.id} className={styles.btnHeroBg} src={btnHero.publicURL} alt="iotam"/>
-                  ))}
-                  {btn2Heros.map(btn2Hero => (
-                    <img key={btn2Hero.id} className={styles.btnHeroFg} src={btn2Hero.publicURL} alt="iotam"/>
-                  ))}
-                </Link>
-                
-              
             </div>
           ))}
-          <div className={styles.videoHero}>
+          </div>
+          <div className={styles.colRight}>
+            <button id="btn__hero" className={styles.btnHero}>
+              {btnHeros.map(btnHero => (
+                <img key={btnHero.id} className={styles.btnHeroBg} src={btnHero.publicURL} alt="iotam"/>
+              ))}
+              {btn2Heros.map(btn2Hero => (
+                <img key={btn2Hero.id} className={styles.btnHeroFg} src={btn2Hero.publicURL} alt="iotam"/>
+              ))}
+            </button>
+          </div>
+        </div>
+        <div className={`${styles.column1} ${styles.videoHero}`}>
             {<video autoPlay loop muted>
               <source src={chipVideo} type="video/mp4" />
             </video>}
-          </div>
-          
         </div>
       </section>
 
@@ -99,20 +100,20 @@ export default function Inicio({data}){
           <div key={diferenciador.id} className={styles.column2}>
 
             <div className={styles.colLeft}>
-              
-              <div className={styles.diferenciador}>
-                <p>{diferenciador.frontmatter.diferenciador1}</p>
+              <div className={styles.diferenciador__wrapper}>
+                <div className={styles.diferenciador}>
+                  <p>{diferenciador.frontmatter.diferenciador1}</p>
+                </div>
+                <div className={styles.diferenciador}>
+                  <p>{diferenciador.frontmatter.diferenciador2}</p>
+                </div>
+                <div className={styles.diferenciador}>
+                  <p>{diferenciador.frontmatter.diferenciador3}</p>
+                </div>
+                <div className={styles.diferenciador}>
+                  <p>{diferenciador.frontmatter.diferenciador4}</p>
+                </div>
               </div>
-              <div className={styles.diferenciador}>
-                <p>{diferenciador.frontmatter.diferenciador2}</p>
-              </div>
-              <div className={styles.diferenciador}>
-                <p>{diferenciador.frontmatter.diferenciador3}</p>
-              </div>
-              <div className={styles.diferenciador}>
-                <p>{diferenciador.frontmatter.diferenciador4}</p>
-              </div>
-            
             </div>
 
             <div className={styles.colRight}>
@@ -141,9 +142,9 @@ export default function Inicio({data}){
             <div key={mercado.id} dangerouslySetInnerHTML={{ __html: mercado.html }} />
           ))}
         </div>
-        <div className={`${styles.column1} ${styles.listadoIndustrias}`}>
-          <div className="max1400">
-          {industrias.map(industria => (
+        <div className={styles.column1}>
+          <div className={styles.listadoIndustrias}>
+            {industrias.map(industria => (
             <div key={industria.id} className={styles.industria}>
               <img src={`/${industria.frontmatter.icono_industria}`} alt={industria.frontmatter.nombre_industria}/>
               <div>
@@ -151,7 +152,7 @@ export default function Inicio({data}){
                 <p>{industria.frontmatter.descripcion_industria}</p>
               </div>
             </div>
-          ))}
+            ))}
           </div>
         </div>
 
@@ -163,7 +164,7 @@ export default function Inicio({data}){
           <div className={styles.colLeft}>
             {soluciones.map(solucion => (
               <div key={solucion.id} className={styles.solucionTopBloque}>
-                <img src={`${solucion.frontmatter.icono_soluciones}`} alt="Soluciones software y hardware para la industria IOT"/>
+                <img src={`/${solucion.frontmatter.icono_soluciones}`} alt="Soluciones software y hardware para la industria IOT"/>
                 <div dangerouslySetInnerHTML={{ __html: solucion.html }} />
               </div>
             ))}
@@ -360,7 +361,7 @@ export const query = graphql`
         id
       }
     }
-    losMercados: allMarkdownRemark(filter: {id: {eq: "8e93ce51-17d1-5577-8be5-89374dcefbb0"}}) {
+    losMercados: allMarkdownRemark(filter: {frontmatter: {dataid: {eq: "industriasIntro"}}}) {
       nodes {
         id
         html
