@@ -6,7 +6,7 @@ diferenciador3: Excelencia en cada uno de nuestros proyectos.
 diferenciador4: Tecnología de punta y de alta calidad.
 ---
 
-## ¿Por qué elegir **IOTAM**?
+## Por qué elegir IOTAM
 Nos enorgullecemos de ofrecer experiencia y dedicación incomparables a nuestros clientes.
 Con un equipo altamente calificado y tecnología de punta, **brindamos excelencia** en todas nuestras soluciones y servicios.
 

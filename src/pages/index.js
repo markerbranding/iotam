@@ -4,7 +4,7 @@ import * as styles from "../styles/inicio.module.css"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import chipVideo from "../images/iotam_hero.mp4"
 import solucionVideo from "../images/chip_original_900.mp4"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 //import Spline from '@splinetool/react-spline'
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
@@ -117,11 +117,9 @@ export default function Inicio({data}){
             </div>
 
             <div className={styles.colRight}>
-              
               <div dangerouslySetInnerHTML={{ __html: diferenciador.html }} />
-              <Link to="/">Descargar brochure</Link>
+              <a className="btn" href="/brochure.pdf" target="_blank" >Descargar brochure</a>
             </div>
-            
           </div>
         ))}
       </section>
@@ -136,12 +134,9 @@ export default function Inicio({data}){
 
 
       <section className={styles.industrias} id="sectionIndustrias">
-
-        <div className={styles.column1}>
-          {mercados.map(mercado => (
-            <div key={mercado.id} dangerouslySetInnerHTML={{ __html: mercado.html }} />
-          ))}
-        </div>
+        {mercados.map(mercado => (
+          <div className={`${styles.column1} ${styles.titulos__industrias}`} key={mercado.id} dangerouslySetInnerHTML={{ __html: mercado.html }} />
+        ))}
         <div className={styles.column1}>
           <div className={styles.listadoIndustrias}>
             {industrias.map(industria => (
@@ -155,7 +150,6 @@ export default function Inicio({data}){
             ))}
           </div>
         </div>
-
       </section>
       
 
