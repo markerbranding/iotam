@@ -35,6 +35,7 @@ export default function Navbar() {
                 <button id="aDiferenciadores" >Diferenciadores</button>
                 <button id="aIndustrias" >Industrias</button>
                 <button id="aSoluciones" >Soluciones</button>
+                <button id="aFaq" >Q&A</button>
                 <button id="aContacto" >Contacto</button>
             </div>
 

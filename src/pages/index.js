@@ -26,6 +26,10 @@ export default function Inicio({data}){
   const divisores = data.losDivisores.nodes
   const mercados = data.losMercados.nodes
   const industrias = data.lasIndustrias.nodes
+  const imagenDiferenciador1 = data.imgDiferenciador1.nodes
+  const imagenDiferenciador2 = data.imgDiferenciador2.nodes
+  const imagenDiferenciador3 = data.imgDiferenciador3.nodes
+  const imagenDiferenciador4 = data.imgDiferenciador4.nodes
   const soluciones = data.lasSoluciones.nodes
   const solucionHardwares = data.solucionHardware.nodes
   const solucionSoftwares = data.solucionSoftware.nodes
@@ -80,9 +84,9 @@ export default function Inicio({data}){
       </section>
 
 
-      <section className={styles.sectionNosotros} id="sectionNosotros">
+      <section className={`${styles.sectionNosotros}`} id="sectionNosotros">
         <div className={styles.column2}>
-          <div className={styles.colLeft}>
+          <div className={`${styles.colLeft} fadeInOut`}>
             {nosotros.map(nuestro => (
               <div key={nuestro.id}>
                 <div dangerouslySetInnerHTML={{ __html: nuestro.html }} />
@@ -104,30 +108,46 @@ export default function Inicio({data}){
       </section>
       
       
-      <section className={styles.diferenciadores} id="sectionDiferenciadores">
+      <section className={`${styles.diferenciadores} fadeInOut`} id="sectionDiferenciadores">
         {diferenciadores.map(diferenciador => (
           <div key={diferenciador.id} className={styles.column2}>
 
             <div className={styles.colLeft}>
               <div className={styles.diferenciador__wrapper}>
                 <div className={styles.diferenciador}>
+                {imagenDiferenciador1.map(imgDiferenciador1 => (
+                    <GatsbyImage key={imgDiferenciador1.id} className={`${styles.imgDiferenciador}`} image={getImage(imgDiferenciador1.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+                  ))}
                   <p>{diferenciador.frontmatter.diferenciador1}</p>
+                  
                 </div>
                 <div className={styles.diferenciador}>
+                {imagenDiferenciador2.map(imgDiferenciador2 => (
+                    <GatsbyImage key={imgDiferenciador2.id} className={`${styles.imgDiferenciador}`} image={getImage(imgDiferenciador2.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+                  ))}
                   <p>{diferenciador.frontmatter.diferenciador2}</p>
+                  
                 </div>
                 <div className={styles.diferenciador}>
+                {imagenDiferenciador3.map(imgDiferenciador3 => (
+                    <GatsbyImage key={imgDiferenciador3.id} className={`${styles.imgDiferenciador}`} image={getImage(imgDiferenciador3.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+                  ))}
                   <p>{diferenciador.frontmatter.diferenciador3}</p>
+                  
                 </div>
                 <div className={styles.diferenciador}>
+                {imagenDiferenciador4.map(imgDiferenciador4 => (
+                    <GatsbyImage key={imgDiferenciador4.id} className={`${styles.imgDiferenciador}`} image={getImage(imgDiferenciador4.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+                  ))}
                   <p>{diferenciador.frontmatter.diferenciador4}</p>
+                  
                 </div>
               </div>
             </div>
 
             <div className={styles.colRight}>
               <div dangerouslySetInnerHTML={{ __html: diferenciador.html }} />
-              <a className="btn" href="/brochure.pdf" target="_blank" >Descargar brochure</a>
+              <a className="btn" href="/brochure_iotam_es.pdf" target="_blank" >Descargue nuestro brochure</a>
             </div>
           </div>
         ))}
@@ -142,14 +162,14 @@ export default function Inicio({data}){
       </section>
 
 
-      <section className={styles.industrias} id="sectionIndustrias">
+      <section className={`${styles.industrias}`} id="sectionIndustrias">
         {mercados.map(mercado => (
-          <div className={`${styles.column1} ${styles.titulos__industrias}`} key={mercado.id} dangerouslySetInnerHTML={{ __html: mercado.html }} />
+          <div className={`${styles.column1} ${styles.titulos__industrias} fadeInOut`} key={mercado.id} dangerouslySetInnerHTML={{ __html: mercado.html }} />
         ))}
-        <div className={styles.column1}>
+        <div className={`${styles.column1} listado`}>
           <div className={styles.listadoIndustrias}>
             {industrias.map(industria => (
-            <div key={industria.id} className={styles.industria}>
+            <div key={industria.id} className={`${styles.industria} card`}>
               <img src={`/${industria.frontmatter.icono_industria}`} alt={industria.frontmatter.nombre_industria}/>
               <div>
                 <h3>{industria.frontmatter.nombre_industria}</h3>
@@ -164,7 +184,7 @@ export default function Inicio({data}){
 
       <section className={styles.sectionSolucionesTop} id="sectionSolucionesTop">
         <div className={styles.column2}>
-          <div className={styles.colLeft}>
+          <div className={`${styles.colLeft} fadeInOut solucionTopLeft`}>
             {soluciones.map(solucion => (
               <div key={solucion.id} className={styles.solucionTopBloque}>
                 <img src={`/${solucion.frontmatter.icono_soluciones}`} alt="Soluciones software y hardware para la industria IOT"/>
@@ -186,18 +206,13 @@ export default function Inicio({data}){
             <source src={bgVideo} type="video/mp4" />
           </video>}
           <div className={styles.colLeft}>
-          
-          
-          <div id="videoHolder">
-            <div id="innerVideoHolder">
-              <video id="miVideo" className="miVideo" src={solucionVideo} playsInline={true} webkit-playsinline="true" preload="metadata" muted="muted"><track></track></video>
+            <div id="videoHolder">
+              <div id="innerVideoHolder">
+                <video id="miVideo" className="miVideo" src={solucionVideo} playsInline={true} webkit-playsinline="true" preload="metadata" muted="muted"><track></track></video>
+              </div>
             </div>
           </div>
-          
-
-
-          </div>
-          <div className={styles.colRight} id="colRightSoluciones">
+          <div className={`${styles.colRight} fadeInOut`} id="colRightSoluciones">
             <div className={`${styles.solucion1}`}>
               {solucionHardwares.map(solucionHardware => (
                 <div key={solucionHardware.id}>
@@ -207,25 +222,13 @@ export default function Inicio({data}){
                 </div>
               ))}
               <div className={styles.acordeon}>
-
-              <AcordeonGroup
-                acordeones={hardwares.map((hardware) => ({
-                  title: hardware.frontmatter.titulo_de_la_solucion,
-                  content: hardware.html,
-                }))}
-              />
-
-                {/*
-                {hardwares.map(hardware => (
-                  <CustomAcordeon
-                    key={hardware.id}
-                    title={hardware.frontmatter.titulo_de_la_solucion}
-                    content= {hardware.html }
-                  />
-                ))}
-                  */}
+                <AcordeonGroup
+                  acordeones={hardwares.map((hardware) => ({
+                    title: hardware.frontmatter.titulo_de_la_solucion,
+                    content: hardware.html,
+                  }))}
+                />
               </div>
-              
             </div>
 
             <div className={`${styles.solucion2}`}>
@@ -243,15 +246,6 @@ export default function Inicio({data}){
                     content: software.html,
                   }))}
                 />
-                {/*
-                {softwares.map(software => (
-                  <CustomAcordeon
-                    key={software.id}
-                    title={software.frontmatter.titulo_de_la_solucion}
-                    content= {software.html }
-                  />
-                ))}
-                */}
               </div>
             </div>
 
@@ -270,15 +264,6 @@ export default function Inicio({data}){
                     content: personalizada.html,
                   }))}
                 />
-                {/*}
-                {personalizadas.map(personalizada => (
-                  <CustomAcordeon
-                    key={personalizada.id}
-                    title={personalizada.frontmatter.titulo_de_la_solucion}
-                    content= {personalizada.html }
-                  />
-                ))}
-                */}
               </div>
             </div>
 
@@ -287,7 +272,7 @@ export default function Inicio({data}){
       </section>
 
 
-      <section className={styles.sectionQA} id="sectionQA">
+      <section className={`${styles.sectionQA} fadeInOut`} id="sectionQA">
         <div className={styles.column2}>
           <div className={`${styles.colLeft}`}>
             <h2>Preguntas frecuentes</h2>
@@ -367,12 +352,12 @@ export default function Inicio({data}){
                 <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad, Estado" />
               </label>
               <label>Asunto:
-                <input type="text" name="asunto" id="asunto" placeholder="Cómo podemos ayudarte..." />
+                <input type="text" name="asunto" id="asunto" placeholder="Cómo podemos ayudarle..." />
               </label>
               <label>Mensaje (opcional):
-                <textarea name="mensaje" id="mensaje" rows="5" placeholder="Estamos para leerte..." />
+                <textarea name="mensaje" id="mensaje" rows="5" placeholder="-" />
               </label>
-              <button name="submit" id="submit" type="submit">Enviar</button>
+              <button name="submit" id="submit" type="submit">Enviar mensaje</button>
             </form>
           </div>
         </div>
@@ -419,6 +404,30 @@ export const query = graphql`
           diferenciador3
           diferenciador4
         }
+      }
+    }
+    imgDiferenciador1: allImageSharp(filter: {id: {}, fluid: {originalName: {eq: "diferenciador1.jpg"}}}) {
+      nodes {
+        gatsbyImageData
+        id
+      }
+    }
+    imgDiferenciador2: allImageSharp(filter: {id: {}, fluid: {originalName: {eq: "diferenciador2.jpg"}}}) {
+      nodes {
+        gatsbyImageData
+        id
+      }
+    }
+    imgDiferenciador3: allImageSharp(filter: {id: {}, fluid: {originalName: {eq: "diferenciador3.jpg"}}}) {
+      nodes {
+        gatsbyImageData
+        id
+      }
+    }
+    imgDiferenciador4: allImageSharp(filter: {id: {}, fluid: {originalName: {eq: "diferenciador4.jpg"}}}) {
+      nodes {
+        gatsbyImageData
+        id
       }
     }
     losDivisores: allImageSharp(filter: {id: {}, fluid: {originalName: {eq: "chip_manufacturing.jpg"}}}) {

@@ -7,7 +7,7 @@ const CustomAcordeon = ({ title, content, isOpen, onToggle }) => {
     const contentRef = useRef(null);
 
     return (
-        <div className={`${styles.acordeonBody}`}>
+        <div className={`${styles.acordeonBody} acordeon`}>
             <button className={styles.acordeonTitle} onClick={onToggle}>
                 {title}
                 <span className={styles.acordeonArrow}>{isOpen ? '-' : '+'}</span>

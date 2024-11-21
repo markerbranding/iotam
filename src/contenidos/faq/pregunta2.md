@@ -4,4 +4,4 @@ pregunta: ¿Cuánto tiempo les toma generar una propuesta de trabajo?
 orden_faq: 2
 ---
 
-Desarrollo de hardware a medida para **instrumentos de medición de caudal**, compatible con Badger Meter modelo M1000 (GPRS 3G y GPRS 4G) y Acquamet (GPRS 4G).
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam venenatis posuere nulla, vel ultricies turpis pulvinar eget. Nulla facilisi. Nunc commodo at libero quis pharetra. Sed auctor urna ultricies urna scelerisque porttitor. Cras interdum neque vel porttitor ullamcorper. In at accumsan erat, ut dignissim erat. Pellentesque quis luctus ligula. Phasellus semper metus mauris, in porta tellus varius sed. Cras commodo condimentum quam quis luctus. Fusce sit amet vulputate ex. Nam a interdum lacus, in venenatis nibh. Pellentesque congue sodales mi vel pretium.

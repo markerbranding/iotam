@@ -1,14 +1,14 @@
 ---
 apartado: contacto
-telefono: 9993384647
-whatsapp: 9993384647
+telefono: 9993226033
+whatsapp: 9993226033
 correo: contacto@iotam.mx
-direccion: Calle 92 S/N x 65A. Dzityá, Mérida, Yucatán C.P. 97302.
-url_maps: https://maps.app.goo.gl/3D5DmtmLZP2KrAzp7
-facebook: https://facebook.com
-instagram: https://instagram.com
-linkedin: https://linkedin.com
+direccion: Calle 92 S/N Interior A x 65 A, Dzityá C.P. 97302, Mérida, Yucatán
+url_maps: https://maps.app.goo.gl/km2XBwGWkUHyLf8W6
+facebook: https://facebook.com/
+instagram: https://instagram.com/
+linkedin: https://linkedin.com/
 ---
 
 ## Contáctanos
-Estamos para ofrecerte soluciones personalizadas a las demandas únicas de tu industria.
+Estamos para ofrecerle soluciones personalizadas a las demandas específicas de su industria.

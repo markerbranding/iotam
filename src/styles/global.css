@@ -178,7 +178,7 @@ nav button:hover {
 }
 
 .btn{
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary-dark);
   padding: 8px 20px 8px 8px;
   color: var(--color-accent);
   font-size: var(--size-sm);
@@ -196,7 +196,7 @@ nav button:hover {
     display: block;
     width: 30px;
     height: 30px;
-    background-color: var(--color-secondary-light);
+    background-color: var(--color-primary-light);
     background-image: url(../images/btn_arrow.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -206,7 +206,7 @@ nav button:hover {
     transition: transform 0.3s ease-in-out;
   }
   &:hover{
-    background-color: #3b4d5d;
+    background-color: var(--color-primary);
     &::before{
       transform: rotate(0deg);
     }
@@ -226,15 +226,29 @@ footer p{
 
 .cotizaBtn{
   margin-left: 50px;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   background-color: var(--color-secondary);
   text-decoration: none;
+  text-transform: uppercase;
   height: auto;
-  padding: 5px 10px;
+  padding: 8px 20px;
   border-radius: 10px;
-  color: var(--color-primary-light);
+  color: var(--color-white);
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  &::before{
+    content: "";
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/whatsapp.svg);
+  }
 }
 .cotizaBtn:hover{
   color: var(--color-accent);
