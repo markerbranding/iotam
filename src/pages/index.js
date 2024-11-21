@@ -3,15 +3,14 @@ import Layout from "../components/Layout"
 import * as styles from "../styles/inicio.module.css"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import chipVideo from "../images/iotam_hero.mp4"
-import solucionVideo from "../images/chip_original_900.mp4"
+import bgVideo from "../images/chip_bg2_1200.mp4"
+import solucionVideo from "../images/chip_big_1200.mp4"
 import { graphql } from "gatsby"
-//import Spline from '@splinetool/react-spline'
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-
-/* import Canvas from "../components/Canvas" */
-import CustomAcordeon from "../components/Acordeon"
 /* eslint-disable jsx-a11y/media-has-caption */
+//import CustomAcordeon from "../components/Acordeon"
+import AcordeonGroup from '../components/AcordeonGroup';
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -36,6 +35,10 @@ export default function Inicio({data}){
   const personalizadas = data.laPersonalizada.nodes
   const imagenSoluciones = data.imagenSoluciones.nodes
   const imagenNosotros = data.imagenNosotros.nodes
+  const imagenFloatNosotros = data.imagenFloatNosotros.nodes
+  const imagenFloatNosotros2 = data.imagenFloatNosotros2.nodes
+  const lasFaqs = data.lasFaqs.nodes
+  const imagenQA = data.imagenQA.nodes
   const nosotros = data.losNosotros.nodes
   const contactos = data.losContactos.nodes
   const linkedin = data.elLinkedin.nodes
@@ -87,6 +90,12 @@ export default function Inicio({data}){
             ))}
           </div>
           <div className={styles.colRight}>
+            {imagenFloatNosotros.map(imgFloatNosotros => (
+              <GatsbyImage key={imgFloatNosotros.id} className={`${styles.imagenFloatNosotros} floatimg`} image={getImage(imgFloatNosotros.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+            ))}
+            {imagenFloatNosotros2.map(imgFloatNosotros2 => (
+              <GatsbyImage key={imgFloatNosotros2.id} className={`${styles.imagenFloatNosotros2} floatimg2`} image={getImage(imgFloatNosotros2.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+            ))}
             {imagenNosotros.map(imgNosotros => (
               <GatsbyImage key={imgNosotros.id} className={`${styles.imagenNosotros} imgNosotros`} image={getImage(imgNosotros.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
             ))}
@@ -173,6 +182,9 @@ export default function Inicio({data}){
         </section>
         <section className={styles.sectionSoluciones} id="sectionSoluciones">
         <div className={styles.column2}>
+          {<video className="bgVideo" autoPlay loop muted playsInline={true} webkit-playsinline="true">
+            <source src={bgVideo} type="video/mp4" />
+          </video>}
           <div className={styles.colLeft}>
           
           
@@ -195,6 +207,15 @@ export default function Inicio({data}){
                 </div>
               ))}
               <div className={styles.acordeon}>
+
+              <AcordeonGroup
+                acordeones={hardwares.map((hardware) => ({
+                  title: hardware.frontmatter.titulo_de_la_solucion,
+                  content: hardware.html,
+                }))}
+              />
+
+                {/*
                 {hardwares.map(hardware => (
                   <CustomAcordeon
                     key={hardware.id}
@@ -202,6 +223,7 @@ export default function Inicio({data}){
                     content= {hardware.html }
                   />
                 ))}
+                  */}
               </div>
               
             </div>
@@ -215,6 +237,13 @@ export default function Inicio({data}){
                   </div>
               ))}
               <div className={styles.acordeon}>
+                <AcordeonGroup
+                  acordeones={softwares.map((software) => ({
+                    title: software.frontmatter.titulo_de_la_solucion,
+                    content: software.html,
+                  }))}
+                />
+                {/*
                 {softwares.map(software => (
                   <CustomAcordeon
                     key={software.id}
@@ -222,6 +251,7 @@ export default function Inicio({data}){
                     content= {software.html }
                   />
                 ))}
+                */}
               </div>
             </div>
 
@@ -234,6 +264,13 @@ export default function Inicio({data}){
                   </div>
               ))}
               <div className={styles.acordeon}>
+                <AcordeonGroup
+                  acordeones={personalizadas.map((personalizada) => ({
+                    title: personalizada.frontmatter.titulo_de_la_solucion,
+                    content: personalizada.html,
+                  }))}
+                />
+                {/*}
                 {personalizadas.map(personalizada => (
                   <CustomAcordeon
                     key={personalizada.id}
@@ -241,12 +278,43 @@ export default function Inicio({data}){
                     content= {personalizada.html }
                   />
                 ))}
+                */}
               </div>
             </div>
 
           </div>
         </div>
       </section>
+
+
+      <section className={styles.sectionQA} id="sectionQA">
+        <div className={styles.column2}>
+          <div className={`${styles.colLeft}`}>
+            <h2>Preguntas frecuentes</h2>
+            <AcordeonGroup
+                  acordeones={lasFaqs.map((elFaq) => ({
+                    title: elFaq.frontmatter.pregunta,
+                    content: elFaq.html,
+                  }))}
+            />
+            {/*}
+            {lasFaqs.map(elFaq => (
+              <CustomAcordeon
+                key={elFaq.id}
+                title={elFaq.frontmatter.pregunta}
+                content= {elFaq.html}
+              />
+            ))}
+              */}
+          </div>
+          <div className={styles.colRight}>
+            {imagenQA.map(imgQA => (
+              <GatsbyImage key={imgQA.id} className={`${styles.imagen__qa} imgQA`} image={getImage(imgQA.gatsbyImageData)} alt="Somos un equipo de profesionales en la IOT" />
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       <section className={styles.sectionContacto} id="sectionContacto">
         <div className={styles.column2}>
@@ -282,26 +350,30 @@ export default function Inicio({data}){
             ))}
           </div>
           <div className={styles.colRight}>
-            <form method="post" action="form.php">
-              <div className={styles.form2col}>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
-                <input type="text" name="empresa" id="empresa" placeholder="Empresa" />
-              </div>
-              <div className={styles.form2col}>
-                <input type="email" name="email" id="email" placeholder="Correo electrónico" />
-                <input type="tel" name="telefono" id="telefono" placeholder="Teléfono" />
-              </div>
-              <div className={styles.form2col}>
-                <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" />
-                <input type="text" name="asunto" id="asunto" placeholder="Asunto" />
-              </div>
-              <div className={styles.form1col}>
-                <textarea name="mensaje" id="mensaje" rows="5" placeholder="Mensaje (opcional)" />
-              </div>
-              <div className={styles.form1col}>
-                <button name="submit" id="submit" type="submit">Enviar</button>
-              </div>
-          </form>
+            <form method="post" action="/gracias/">
+              <label>Nombre:
+                <input type="text" name="nombre" id="nombre" placeholder="-" />
+              </label>
+              <label>Empresa:
+                <input type="text" name="empresa" id="empresa" placeholder="-" />
+              </label>
+              <label>Correo electrónico:
+                <input type="email" name="email" id="email" placeholder="correo@empresa.com" />
+              </label>
+              <label>Teléfono:
+                <input type="tel" name="telefono" id="telefono" placeholder="000-000-0000" />
+              </label>
+              <label>Ciudad:
+                <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad, Estado" />
+              </label>
+              <label>Asunto:
+                <input type="text" name="asunto" id="asunto" placeholder="Cómo podemos ayudarte..." />
+              </label>
+              <label>Mensaje (opcional):
+                <textarea name="mensaje" id="mensaje" rows="5" placeholder="Estamos para leerte..." />
+              </label>
+              <button name="submit" id="submit" type="submit">Enviar</button>
+            </form>
           </div>
         </div>
       </section>
@@ -471,10 +543,42 @@ export const query = graphql`
         id
       }
     }
-    imagenNosotros: allImageSharp(filter: {fluid: {originalName: {eq: "iotam_rrhh.jpg"}}}) {
+    imagenNosotros: allImageSharp(filter: {fluid: {originalName: {eq: "chip_about.jpg"}}}) {
       nodes {
         gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: AUTO)
         id
+      }
+    }
+    imagenFloatNosotros: allImageSharp(filter: {fluid: {originalName: {eq: "chip_about_float.png"}}}) {
+      nodes {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: AUTO)
+        id
+      }
+    }
+    imagenFloatNosotros2: allImageSharp(filter: {fluid: {originalName: {eq: "componente.png"}}}) {
+      nodes {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: AUTO)
+        id
+      }
+    }
+    imagenQA: allImageSharp(filter: {fluid: {originalName: {eq: "iotam_rrhh.jpg"}}}) {
+      nodes {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: AUTO)
+        id
+      }
+    }
+    lasFaqs: allMarkdownRemark(
+      filter: {frontmatter: {apartado: {eq: "faq"}}}
+      sort: {frontmatter: {orden_faq: ASC}}
+    ) {
+      nodes {
+        frontmatter {
+          pregunta
+          apartado
+          orden_faq
+        }
+        id
+        html
       }
     }
     losContactos: allMarkdownRemark(filter: {frontmatter: {apartado: {eq: "contacto"}}}) {

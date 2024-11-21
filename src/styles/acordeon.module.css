@@ -1,74 +1,77 @@
-.acordeonTitle{
-    width: 100%;
-    background-color: transparent;
-    border: 0px;
-    cursor: pointer;
-    text-align: left;
-    font-size: 1.2vw;
-}
-
 .acordeonBody{
-    border-bottom: 1px solid #054230;
-}
-
-.acordeonTitle{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color:#00c08b;
-}
-
-.acordeonArrow{
-    transition: transform 0.2s ease-in-out;
-    transform: rotate(0deg);
-    transform-origin: center center;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: 2vw;
-    line-height: 1;
-    font-weight: 200;
-}
-
-.uncollapsed .acordeonArrow{
-    transform: rotate(45deg);
-}
-
-.acordeonContent{
     width: 100%;
-    overflow: hidden;
-    transition: 0.5s ease-out !important;
-    
+    border-bottom: 1px solid var(--color-primary);
+    .acordeonTitle{
+        width: 100%;
+        background-color: transparent;
+        border: 0px;
+        cursor: pointer;
+        text-align: left;
+        font-size: 1.2vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--color-primary-light);
+        font-family: "Cairo";
+        .acordeonArrow{
+            transition: transform 0.2s ease-in-out;
+            transform: rotate(0deg);
+            transform-origin: center center;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            font-size: 2vw;
+            line-height: 1;
+            font-weight: 200;
+        }
+    }
+    &.collapsed{
+        .acordeonContent{
+            height: auto;
+            max-height: 0px;
+            opacity: 0;
+        }
+    } 
+    &.uncollapsed{
+        .acordeonTitle{
+            color: var(--color-accent);
+            .acordeonArrow{
+                transform: rotate(45deg);
+            }
+        }
+        
+        .acordeonContent{
+            height: auto;
+            max-height: 500px;
+            opacity: 1;
+        }
+    }
+    .acordeonContent{
+        width: 100%;
+        overflow: hidden;
+        transition: 0.5s ease-out !important;
+        p{
+            font-size: var(--size-sm) !important;
+            opacity: 0.8 !important;
+            strong{
+                color: inherit;
+                font-weight: 600;
+            }
+        }
+    }
 }
 
-.acordeonContent p{
-    opacity: 0.8 !important;
-}
 
-.acordeonContent strong{
-    color:#c6e5db;
-    font-weight: 600;
-}
 
-.collapsed .acordeonContent{
-    height: auto;
-    max-height: 0px;
-    opacity: 0;
-}
 
-.uncollapsed .acordeonContent{
-    height: auto;
-    max-height: 500px;
-    opacity: 1;
-}
 
-.uncollapsed .acordeonTitle{
-    color:#00c08b;
-}
+
+
+
 
 
 

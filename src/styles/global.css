@@ -179,11 +179,38 @@ nav button:hover {
 
 .btn{
   background-color: var(--color-secondary);
-  padding: 5px 20px;
+  padding: 8px 20px 8px 8px;
   color: var(--color-accent);
   font-size: var(--size-sm);
   text-decoration: none;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s ease-in-out;
+  &::before{
+    content: "";
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-secondary-light);
+    background-image: url(../images/btn_arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border-radius: 30px;
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover{
+    background-color: #3b4d5d;
+    &::before{
+      transform: rotate(0deg);
+    }
+  }
 }
 
 footer p{
@@ -228,6 +255,17 @@ canvas{
   width: 100% !important;
 }
 
+.bgVideo{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  object-fit: cover;
+}
+
 #videoHolder{
   height: 100vh;
   width: 100% !important;
@@ -240,7 +278,7 @@ canvas{
 #innerVideoHolder{
   height: auto;
   width: 100%;
-  -webkit-mask-image:url(../images/mascara_video.png);
+  /*-webkit-mask-image:url(../images/mascara_video.png);
   -webkit-mask-position:left top;
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-size:100%;
@@ -248,7 +286,7 @@ canvas{
   mask-image:url(../images/mascara_video.png);
   mask-position:left top;
   mask-repeat:no-repeat;
-  mask-size:100%;
+  mask-size:100%;*/
 }
 
 #miVideo{
@@ -261,41 +299,39 @@ footer{
   width: 100%;
   padding: 0 60px;
   margin-top: -3px;
+  .column1{
+    width: 100%;
+    background-color: #062d2d;
+    text-align: center;
+    padding: 60px;
+    position: relative;
+    .line{
+      width: calc(100% - 120px);
+      height: 1px;
+      background-color: var(--color-primary);
+      opacity: 0.2;
+      position: absolute;
+      top: 0;
+      left: 60px;
+      display: block;
+    }
+    span{
+      font-size: 16px;
+      color: var(--color-primary-light);
+    }
+    a{
+      font-size: 16px;
+      color: var(--color-primary-light);
+      &:hover{
+        color: var(--color-accent);
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
-footer .column1{
-  width: calc(100% - 120px);
-  background-color: #062d2d;
-  text-align: center;
-  padding: 60px;
-  position: relative;
-}
 
-footer .line{
-  width: calc(100% - 120px);
-  height: 1px;
-  background-color: var(--color-primary);
-  opacity: 0.2;
-  position: absolute;
-  top: 0;
-  left: 60px;
-  display: block;
-}
 
-footer span{
-  font-size: 16px;
-  color: var(--color-primary-light);
-}
-
-footer a{
-  font-size: 16px;
-  color: var(--color-primary-light);
-}
-
-footer a:hover{
-  color: var(--color-accent);
-  text-decoration: underline;
-}
 
 /*
 @media (max-width: 1700px) {
