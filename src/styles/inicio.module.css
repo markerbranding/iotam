@@ -52,6 +52,7 @@
                 z-index: 1;
                 font-weight: 300;
                 font-size: var(--size-md);
+                line-height: 1.3;
             }
             h2{
                 color: var(--color-white);
@@ -1046,21 +1047,147 @@
     }
 
     .sectionSoluciones{
-        padding: 0px 20px 0px;
+        padding: 0px 0px 0px;
+        overflow: hidden;
+        position: relative;
+        &::after{
+            content: "";
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-left: 20px solid var(--color-secondary-light);
+            border-right: 20px solid var(--color-secondary-light);
+            z-index: 2;
+            pointer-events: none;
+        }
         .column2{
             padding: 0px;
             flex-direction: column;
+            overflow: hidden;
             .colLeft{
                 position: relative;
                 z-index: 1;
-                height: 40vh;
+                height: calc(50vh - 120px);
                 width: 100%;
             }
             .colRight{
                 position: relative;
                 z-index: 0;
+                display: inline-flex;
+                flex-direction: row;
+                width: 600vw;
+                padding: 0px;
+                height: 50vh;
+                overflow: hidden;
+                .solucion1{
+                    padding: 0;
+                    overflow: hidden;
+                    width: 200vw;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: stretch;
+                    gap: 0px;
+                    div:first-child{
+                        width: 100%;
+                    }
+                    div:last-child{
+                        width: 100%;
+                    }
+                }
+                .solucion2{
+                    overflow: hidden;
+                    width: 200vw;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: stretch;
+                    div:first-child{
+                        width: 100%;
+                    }
+                    div:last-child{
+                        width: 100%;
+                    }
+                }
+                .solucion3{
+                    overflow: hidden;
+                    width: 200vw;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: stretch;
+                    div:first-child{
+                        width: 100%;
+                    }
+                    div:last-child{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .sectionQA{
+        padding: 40px 20px 40px;
+        .column2{
+            flex-direction: column;
+            padding: 30px;
+            .colLeft{
+                width: 100%;
+                padding-right: 0px;
+                .acordeonArrow{
+                    font-size: var(--size-lg);
+                }
+            }
+            .colRight{
+                width: 100%;
+                padding-top: 40px;
+                padding-left: 0px;
+                .imagen__qa{
+                    height: 40vh;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    .sectionContacto{
+        padding: 0px 20px 0px;
+        .column2{
+            padding: 30px;
+            flex-direction: column;
+            .colLeft{
+                width: 100%;
+                .contactoLeft{
+                    width: 100%;
+                    padding-right: 0px;
+                    gap: 30px !important;
+                    .contactoLeftA{
+                        padding: 20px !important;
+                    }
+                }
+                .contactoLeftB{
+                    a{
+                        .socialIcon{
+                            max-width: 50px;
+                        }
+                    }
+                }
+            }
+            .colRight{
+                padding: 50px 0px 30px;
                 width: 100%;
             }
+        }
+    }
+
+    footer{
+        padding: 0 20px;
+        .column1{
+            width: 100%;
         }
     }
     
@@ -1075,116 +1202,12 @@
 
 
 @media (max-width: 768px) {
-    .hero{
-        height: 60vh;
-    }
-
-    .imagenDivisor{
-        height: 50vh;
-    }
-
-    .diferenciador{
-        height: 180px;
-    }
-
-    .listadoIndustrias{
-        width: calc(100% - 60px) !important;
-        padding: 30px 30px !important;
-    }
-
-    .industria{
-        width: calc(50% - 75px);
-    }
-
-    .sectionSolucionesTop .column2{
-        flex-direction: column-reverse;
-    }
-
-    .sectionSolucionesTop .colLeft{
-        width: calc(100% - 60px);
-    }
-
-    .sectionSolucionesTop .colRight{
-        width: calc(100% - 60px);
-        padding: 0 30px 30px;
-    }
-
-    .sectionSolucionesTop .imagenSolucion{
-        height: 50vh;
-    }
-
-    .sectionSoluciones{
-        padding-right: 0px;
-    }
-
-    .sectionSoluciones .column2{
-        flex-direction: column;
-    }
-
-    .sectionSoluciones .colLeft{
-        height: 50vh;
-        width: 100vw;
-    }
-
-    .sectionSoluciones .colRight{
-        width: calc(100% - 60px);
-        padding: 0 30px;
-    }
-
-    .solucionesNumero span{
-        width: 40px;
-        height: 40px;
-    }
-
-    .sectionNosotros .column2{
-        flex-direction: column;
-    }
-
-    .sectionNosotros .colLeft{
-        width: 100%;
-        padding: 0px 0px 30px;
-    }
-
-    .sectionNosotros .colRight{
-        width: 100%;
-        padding: 0px 0px 0px;
-    }
-
-    .imagenNosotros{
-        height: 50vh;
-    }
-
-    .sectionContacto .column2{
-        flex-direction: column;
-    }
-
-    .sectionContacto .colLeft{
-        width: 100%;
-        padding-right: 0px;
-    }
-
-    .sectionContacto .colRight{
-        width: 100%;
-        padding: 30px 0px;
-    }
-
-    .form2col{
-        flex-direction: row;
-        width: calc(100% - 0px);
-    }
-
-    .form2col input:first-child{
-        margin-right: 7px;
-    }
     
-    .form2col input:last-child{
-        margin-left: 7px;
-    }
 }
 
 
 
-
+/*
 @media (max-width: 650px) {
 
     .hero{
@@ -1323,3 +1346,4 @@
         margin-left: 0px;
     }
 }
+    */

@@ -8,9 +8,8 @@ import solucionVideo from "../images/chip_big_1200.mp4"
 import { graphql } from "gatsby"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-/* eslint-disable jsx-a11y/media-has-caption */
-//import CustomAcordeon from "../components/Acordeon"
 import AcordeonGroup from '../components/AcordeonGroup';
+/* eslint-disable jsx-a11y/media-has-caption */
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -201,7 +200,7 @@ export default function Inicio({data}){
         </div>
         </section>
         <section className={styles.sectionSoluciones} id="sectionSoluciones">
-        <div className={styles.column2}>
+        <div className={`${styles.column2} column__2`}>
           {<video className="bgVideo" autoPlay loop muted playsInline={true} webkit-playsinline="true">
             <source src={bgVideo} type="video/mp4" />
           </video>}
@@ -213,15 +212,15 @@ export default function Inicio({data}){
             </div>
           </div>
           <div className={`${styles.colRight} fadeInOut`} id="colRightSoluciones">
-            <div className={`${styles.solucion1}`}>
+            <div className={`${styles.solucion1} solucion1 info__bloque`}>
               {solucionHardwares.map(solucionHardware => (
-                <div key={solucionHardware.id}>
+                <div key={solucionHardware.id} className="snap__bloque">
                   <div className={styles.solucionesNumero}><span>{solucionHardware.frontmatter.numero_de_solucion}</span>
                   <h3>{solucionHardware.frontmatter.titulo_de_la_solucion}</h3></div>
                   <p dangerouslySetInnerHTML={{ __html: solucionHardware.html }} />
                 </div>
               ))}
-              <div className={styles.acordeon}>
+              <div className={`${styles.acordeon} snap__bloque`}>
                 <AcordeonGroup
                   acordeones={hardwares.map((hardware) => ({
                     title: hardware.frontmatter.titulo_de_la_solucion,
@@ -231,15 +230,15 @@ export default function Inicio({data}){
               </div>
             </div>
 
-            <div className={`${styles.solucion2}`}>
+            <div className={`${styles.solucion2} solucion2 info__bloque`}>
               {solucionSoftwares.map(solucionSoftware => (
-                  <div key={solucionSoftware.id}>
+                  <div key={solucionSoftware.id} className="snap__bloque">
                     <div className={styles.solucionesNumero}><span>{solucionSoftware.frontmatter.numero_de_solucion}</span>
                     <h3>{solucionSoftware.frontmatter.titulo_de_la_solucion}</h3></div>
                     <p dangerouslySetInnerHTML={{ __html: solucionSoftware.html }} />
                   </div>
               ))}
-              <div className={styles.acordeon}>
+              <div className={`${styles.acordeon} snap__bloque`}>
                 <AcordeonGroup
                   acordeones={softwares.map((software) => ({
                     title: software.frontmatter.titulo_de_la_solucion,
@@ -249,15 +248,15 @@ export default function Inicio({data}){
               </div>
             </div>
 
-            <div className={`${styles.solucion3}`}>
+            <div className={`${styles.solucion3} solucion3 info__bloque`}>
               {solucionPersonalizadas.map(solucionPersonalizada => (
-                  <div key={solucionPersonalizada.id}>
+                  <div key={solucionPersonalizada.id} className="snap__bloque">
                     <div className={styles.solucionesNumero}><span>{solucionPersonalizada.frontmatter.numero_de_solucion}</span>
                     <h3>{solucionPersonalizada.frontmatter.titulo_de_la_solucion}</h3></div>
                     <p dangerouslySetInnerHTML={{ __html: solucionPersonalizada.html }} />
                   </div>
               ))}
-              <div className={styles.acordeon}>
+              <div className={`${styles.acordeon} snap__bloque`}>
                 <AcordeonGroup
                   acordeones={personalizadas.map((personalizada) => ({
                     title: personalizada.frontmatter.titulo_de_la_solucion,

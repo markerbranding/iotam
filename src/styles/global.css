@@ -345,7 +345,11 @@ footer{
   }
 }
 
-
+.snap__bloque{
+  
+  width: 100%;
+  padding: 60px;
+}
 
 
 /*
@@ -425,6 +429,7 @@ footer{
 
   .logo img, .navBg .logo img {
       height: 45px;
+      display: block;
   }
 
   .linksNav{
@@ -448,6 +453,20 @@ footer{
   footer .line{
     width: calc(100% - 60px);
     left: 30px;
+  }
+
+  #videoHolder{
+    height: 40vh;
+  }
+
+  #innerVideoHolder{
+    height: 100%;
+  }
+
+  .bgVideo{
+    width: calc(100% - 40px);
+    left: 20px;
+    border-radius: 20px;
   }
 
 }
@@ -483,7 +502,7 @@ footer{
   }
 
   footer .column1{
-    width: calc(100% - 60px);
+    width: 100%;
     padding: 30px;
   }
   footer span, footer a{

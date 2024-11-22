@@ -38,12 +38,140 @@ export default function Layout({children}) {
                             smoothTouch: 0.1,
                         });
                     }
+
+                    const videoElement = document.querySelector(".miVideo");
+                    videoScrub(videoElement, {
+                    scrollTrigger: {
+                        trigger: "#sectionSoluciones",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: true,
+                        pin: "#videoHolder",
+                    },
+                    //onUpdate: () => console.log(videoElement.currentTime)
+                    });
+
+                    function videoScrub(video, vars) {
+                        video = gsap.utils.toArray(video)[0]; // in case selector text is fed in.
+                        let once = (el, event, fn) => {
+                            let onceFn = function () {
+                                el.removeEventListener(event, onceFn);
+                                fn.apply(this, arguments);
+                            };
+                            el.addEventListener(event, onceFn);
+                            return onceFn;
+                        },
+                        prepFunc = () => { video.play(); video.pause(); },
+                        prep = () => once(document.documentElement, "touchstart", prepFunc),
+                        //src = video.currentSrc || video.src,
+                        tween = gsap.fromTo(video, {currentTime: 0}, {paused: true, immediateRender: false, currentTime: video.duration || 1, ease: "none", ...vars}),
+                        resetTime = () => (tween.vars.currentTime = video.duration || 1) && tween.invalidate();
+                        prep();
+                        video.readyState ? resetTime() : once(video, "loadedmetadata", resetTime);
+                        return tween;
+                    }
+
                 
                 }); // Termina gsap escritorio
 
+                mm.add("(max-width: 1024px)", () => {
+
+
+
+
+
+
+                    // Configuración para scroll horizontal
+                    const sections2 = gsap.utils.toArray(".info__bloque");
+                    const snapBloque = gsap.utils.toArray(".snap__bloque");
+                    let maxWidth = 0;
+
+                    const triggerElement = document.querySelector("#sectionSoluciones > .column__2");
+                    console.log("Trigger Element:", triggerElement);
+
+                    // Calcula maxWidth
+                    sections2.forEach((section2) => {
+                        maxWidth += section2.offsetWidth;
+                    });
+
+                    // Selecciona el video
+                    const videoElement = document.querySelector(".miVideo");
+
+                    videoScrubHorizontal(videoElement, {
+                        trigger: "#sectionSoluciones .column__2",
+                        //start: "top top",
+                        //end: "bottom bottom",
+                        start: `${(document.querySelector(".solucion1").offsetLeft + (window.innerWidth * 0 / 100) )}px center`,
+                        end: `${(document.querySelector(".solucion3").offsetLeft + ((window.innerWidth * 100 / 100) )*2)}px top`,
+                        scrub: true,
+                        pin: false,
+                        scroller: null, // Cambia si usas un contenedor de scroll personalizado
+                    });
+
+                    
+
+                    // Configuración de scroll horizontal
+                    gsap.to(sections2, {
+                        x: () => `-${maxWidth - window.innerWidth}`,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: "#sectionSoluciones",
+                            pin: true,
+                            pinSpacing: true,
+                            scrub: 1,
+                            start: "top 100",
+                            end: () => `+=${maxWidth}`,
+                            snap: {
+                                snapTo: 1 / (snapBloque.length - 1),
+                                inertia: true,
+                                duration: { min: 0.1, max: 0.2 },
+                                
+                            },
+                        },
+                    });
+
+                    function videoScrubHorizontal(video, scrollTrigger) {
+                        video = gsap.utils.toArray(video)[0];
+                    
+                        // Asegúrate de que el video esté cargado
+                        if (!video.readyState || isNaN(video.duration)) {
+                            video.addEventListener("loadedmetadata", () => {
+                                initializeScrollTrigger(video, scrollTrigger);
+                            });
+                        } else {
+                            initializeScrollTrigger(video, scrollTrigger);
+                        }
+                    }
+                    
+                    function initializeScrollTrigger(video, scrollTrigger) {
+                        gsap.fromTo(
+                            video,
+                            { currentTime: 0 }, // Empieza desde el inicio del video
+                            {
+                                currentTime: video.duration || 1, // Hasta el final del video
+                                ease: "none",
+                                scrollTrigger: {
+                                    ...scrollTrigger, // Usa las opciones de ScrollTrigger proporcionadas
+                                    onUpdate: (self) => {
+                                        console.log("Progreso:", self.progress);
+                                        const progress = self.progress; // Progreso del ScrollTrigger
+                                        const newTime = progress * video.duration; // Calcula el nuevo tiempo del video
+                                        if (isFinite(newTime)) {
+                                            video.currentTime = newTime;
+                                        } else {
+                                            console.warn("El tiempo calculado no es válido:", newTime);
+                                        }
+                                    },
+                                },
+                            }
+                        );
+                    }
+
+                }); // Termina gsap movil
+
                 const tl = gsap.timeline();
                 tl.to(".navbar", {scrollTrigger: {trigger:"#contenedor", start: 'top top', end: "+=999999999999999", pin:'.navbar', pinSpacing: false},});
-                tl.to(".navbar", {scrollTrigger: {trigger:"#contenedor", start: '30 top', end: "+=999999999999999", toggleClass: {targets: ".navbar", className: "navBg"}}});
+                tl.to(".navbar", {scrollTrigger: {trigger:"#contenedor", start: '0 top', end: "+=999999999999999", toggleClass: {targets: ".navbar", className: "navBg"}}});
                 
 
                 // Llamar al boton
@@ -188,7 +316,7 @@ export default function Layout({children}) {
 
                 // Video Drag
                 //console.clear();
-                const videoElement = document.querySelector(".miVideo");
+                /*const videoElement = document.querySelector(".miVideo");
                 videoScrub(videoElement, {
                 scrollTrigger: {
                     trigger: "#sectionSoluciones",
@@ -203,13 +331,13 @@ export default function Layout({children}) {
                 function videoScrub(video, vars) {
                     video = gsap.utils.toArray(video)[0]; // in case selector text is fed in.
                     let once = (el, event, fn) => {
-                            let onceFn = function () {
+                        let onceFn = function () {
                             el.removeEventListener(event, onceFn);
                             fn.apply(this, arguments);
-                            };
-                            el.addEventListener(event, onceFn);
-                            return onceFn;
-                        },
+                        };
+                        el.addEventListener(event, onceFn);
+                        return onceFn;
+                    },
                     prepFunc = () => { video.play(); video.pause(); },
                     prep = () => once(document.documentElement, "touchstart", prepFunc),
                     //src = video.currentSrc || video.src,
@@ -219,6 +347,8 @@ export default function Layout({children}) {
                     video.readyState ? resetTime() : once(video, "loadedmetadata", resetTime);
                     return tween;
                 }
+
+                */
 
 
             });
