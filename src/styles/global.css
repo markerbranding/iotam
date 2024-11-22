@@ -64,9 +64,9 @@ body {
 
 p, li {
   margin-bottom: 20px;
-  line-height: 1.5em;
+  line-height: 1.5;
   font-size: var(--size-md);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--color-secondary);
   strong{
     color: inherit;
@@ -75,7 +75,7 @@ p, li {
 }
 
 a {
-  line-height: 1.5em;
+  line-height: 1.5;
   font-size: var(--size-md);
   font-weight: 300;
 }
@@ -84,12 +84,13 @@ h2{
   font-size: var(--size-xl);
   color: var(--color-primary);
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: 20px;
 }
 
 h3{
   font-size: var(--size-lg);
+  line-height: 1.3;
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -401,8 +402,8 @@ footer{
   :root {
       /* Text sizes */
       --size-xs: 14px;
-      --size-sm: 15px;
-      --size-md: 18px;
+      --size-sm: 17px;
+      --size-md: 20px;
       --size-lg: 24px;
       --size-xl: 30px;
       --size-2xl: 40px;
@@ -411,14 +412,15 @@ footer{
   }
 
   nav{
-    width: calc(100% - 60px) !important;
-    padding: 15px 30px !important;
+    width: 100% !important;
+    padding: 5px 30px !important;
+    height: 100px !important;
   }
 
   .navBg{
-    padding: 10px 30px !important;
-    width: calc(100% - 120px) !important;
-    left: 30px !important;
+    padding: 5px 30px !important;
+    width: calc(100% - 20px) !important;
+    left: 10px !important;
   }
 
   .logo img, .navBg .logo img {
