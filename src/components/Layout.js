@@ -86,9 +86,6 @@ export default function Layout({children}) {
                     const snapBloque = gsap.utils.toArray(".snap__bloque");
                     let maxWidth = 0;
 
-                    const triggerElement = document.querySelector("#sectionSoluciones > .column__2");
-                    console.log("Trigger Element:", triggerElement);
-
                     // Calcula maxWidth
                     sections2.forEach((section2) => {
                         maxWidth += section2.offsetWidth;
@@ -153,7 +150,6 @@ export default function Layout({children}) {
                                 scrollTrigger: {
                                     ...scrollTrigger, // Usa las opciones de ScrollTrigger proporcionadas
                                     onUpdate: (self) => {
-                                        console.log("Progreso:", self.progress);
                                         const progress = self.progress; // Progreso del ScrollTrigger
                                         const newTime = progress * video.duration; // Calcula el nuevo tiempo del video
                                         if (isFinite(newTime)) {
@@ -377,7 +373,7 @@ export default function Layout({children}) {
                             <div className="column1">
                                 <div className="line"></div>
                                 <span>IOTAM © | </span>
-                                <Link to="../aviso.js">Aviso de privacidad</Link>
+                                <Link to="/aviso/">Aviso de privacidad</Link>
                                 <span> | Sitio creado por </span>
                                 <a href="https://marker.com.mx" target="_blank" rel="noreferrer">MARKER Branding</a>
                             </div>

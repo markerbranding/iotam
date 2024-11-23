@@ -75,8 +75,8 @@ export default function Inicio({data}){
             </button>
           </div>
         </div>
-        <div className={`${styles.column1} ${styles.videoHero}`}>
-            {<video autoPlay loop muted>
+        <div className={`${styles.column1}`}>
+            {<video autoPlay loop muted playsInline={true} webkit-playsinline="true">
               <source src={chipVideo} type="video/mp4" />
             </video>}
         </div>

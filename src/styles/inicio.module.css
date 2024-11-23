@@ -68,7 +68,7 @@
             p{
                 color: var(--color-white);
                 font-size: var(--size-lg);
-                line-height: 1;
+                line-height: 1.3;
                 position: relative;
                 z-index: 1;
             }
@@ -492,10 +492,10 @@
                 margin-bottom: 20px;
                 span{
                     background-color: var(--color-primary-light);
-                    font-size: 2vw;
+                    font-size: var(--size-lg);
                     color:#0c2425;
-                    width: 2.5vw;
-                    height: 2.5vw;
+                    min-width: 60px;
+                    min-height: 60px;
                     border-radius: 10px;
                     display: flex;
                     flex-direction: row;
@@ -503,6 +503,8 @@
                     justify-content: center;
                     margin-right: 20px;
                     font-weight: 600;
+                    padding: 10px;
+                    aspect-ratio: 1/1;
                 }
                 h3{
                     margin-bottom: 0px;
@@ -556,7 +558,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            font-size: 2vw;
+            font-size: var(--size-lg);
             line-height: 1;
             font-weight: 200;
         }
@@ -1082,6 +1084,16 @@
                 padding: 0px;
                 height: 50vh;
                 overflow: hidden;
+                .solucionesNumero{
+                    margin-bottom: 10px;
+                    span{
+                        min-width: 40px;
+                        min-height: 40px;
+                    }
+                    h3{
+                        margin-bottom: 0px;
+                    }
+                }
                 .solucion1{
                     padding: 0;
                     overflow: hidden;
@@ -1202,148 +1214,147 @@
 
 
 @media (max-width: 768px) {
-    
-}
-
-
-
-/*
-@media (max-width: 650px) {
-
     .hero{
-        height: auto;
+        .column2{
+            flex-direction: column;
+            .colLeft{
+                width: 100%;
+            }
+            .colRight{
+                width: 100%;
+                .btnHero{
+                    max-width: 130px;
+                    max-height: 130px;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .column1{
+            &::after{
+                border-radius: 0px;
+            }
+        }
     }
 
-    .hero .column1{
-        flex-direction: column-reverse;
-        width: calc(100% - 60px);
-        padding-top: 100px;
-    }
-
-    .videoHero{
-        position: relative;
-        left: 0px;
-        width: 100% !important;
-        height: 100%;
-        padding: 0px;
-        top:0;
-        border-radius: 20px 20px 0px 0px !important;
-    }
-
-    .videoHero::after{
-        border-radius: 20px 20px 0px 0px !important;
-    }
-
-    .videoHero video{
-        border-radius: 20px 20px 0px 0px !important;
-    }
-
-    .hero .column1 > div:first-child{
-        padding-left:0px;
-        width: calc(100% - 30px);
-        padding: 15px 15px;
-        margin-top: 0px;
-        background-color: #043637;
-        border-radius: 0px 0px 20px 20px;
-    }
-
-    .hero h1{
-        font-size: 16px;
-        line-height: 1.4;;
-    }
-
-    .hero h2{
-        font-size: 26px;
-        margin-top: 10px;
-    }
-
-    .btnHero{
-        max-width: 80px;
-        max-height: 80px;
-        margin: 10px auto 0px;
+    .sectionNosotros{
+        .column2{
+            .colRight{
+                .imagenFloatNosotros{
+                    width: 33%;
+                    top: 5%;
+                }
+                .imagenFloatNosotros2{
+                    width: 30%;
+                    bottom: 20%;
+                }
+            }
+        }
     }
 
     .diferenciadores{
-        padding: 15% 30px 10%;
+        .column2{
+            .colLeft{
+                .diferenciador__wrapper{
+                    grid-template-columns: repeat(1, 1fr);
+                    .imgDiferenciador{
+                        width: 38% !important;
+                    }
+                }
+            }
+        }
     }
 
-    .diferenciadores .column2{
-        flex-direction: column;
-        width: 100%;
-        padding-left: 0px;
+    .industrias{
+        .column1{
+            .listadoIndustrias{
+                grid-template-columns: repeat(4, 4fr);
+                grid-row-gap: 30px;
+                grid-column-gap: 0px;
+                .industria{
+                    grid-column: span 4;
+                    img{
+                        width: 60px;
+                        margin-bottom: 20px;
+                    }
+                    &:nth-child(4){
+                        grid-column-start: 1 !important;
+                        grid-column-end: 5 !important;
+                        background-color: var(--color-white);
+                        h3{
+                            color: var(--color-primary)
+                        }
+                    }
+                    &:nth-child(5){
+                        grid-column-start: 1 !important;
+                        grid-column-end: 5 !important;
+                        background-color: #6ef5d0;
+                        color: var(--color-secondary)
+                    }
+                }
+            }
+        }
     }
 
-    .diferenciadores .colLeft{
-        width: 100%;
-        padding-right: 0px;
-        padding-bottom: 30px;
+    .sectionSolucionesTop{
+        .column2{
+            .colLeft{
+                .solucionTopBloque{
+                    img{
+                        width: 60px;
+                    }
+                }
+            }
+        }
     }
 
-    .diferenciadores .colRight{
-        width: 100%;
-        gap: 30px;
+    .sectionSoluciones{
+        .column2{
+            .colRight{
+                p{
+                    line-height: 1.3;
+                }
+            }
+        }
     }
 
-    .diferenciador{
-        margin: 0px !important;
-        width: calc(50% - 55px);
+    .sectionQA{
+        .column2{
+            .colRight{
+                .imagen__qa{
+                    height: 30vh;
+                }
+            }
+        }
     }
 
-    .imagenDivisor{
-        height: 40vh;
+    .sectionContacto{
+        .column2{
+            .colLeft{
+                .contactoLeft{
+                    flex-direction: column;
+                    gap: 20px !important;
+                    .contactoLeftA{
+                        width: 100%;
+                    }
+                    .contactoLeftB{
+                        width: 100%;
+                        flex-direction: row;
+                        gap: 20px;
+                        a{
+                            border-radius: 10px;
+                        }
+                    }
+                }
+            }
+            .colRight{
+                form{
+                    label{
+                        grid-column: span 2;
+                    }
+                }
+            }
+        }
     }
 
-    .industria{
-        width: 100%;
-    }
-
-    .listadoIndustrias{
-        padding: 0px 30px 30px !important;
-    }
-
-    .sectionSoluciones h3{
-        font-size: 24px;
-    }
-
-    .solucionesNumero span{
-        font-size: 20px !important;
-        width: 35px;
-        height: 35px;
-        margin-right: 10px;
-    }
-
-    .imagenNosotros{
-        height: 40vh;
-    }
-
-    .sectionContacto .contactoLeft{
-        flex-direction: column;
-    }
-
-    .contactoLeftA{
-        width: calc(100% - 60px);
-    }
-
-    .contactoLeftB{
-        flex-direction: row;
-        width: 100%;
-    }
-
-    .socialIcon{
-        max-width: 40px !important;
-    }
-
-    .form2col{
-        flex-direction: column;
-        width: calc(100% - 0px);
-    }
-
-    .form2col input:first-child{
-        margin-right: 0px;
-    }
-    
-    .form2col input:last-child{
-        margin-left: 0px;
-    }
 }
-    */
+

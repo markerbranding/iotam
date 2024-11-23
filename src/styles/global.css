@@ -345,12 +345,6 @@ footer{
   }
 }
 
-.snap__bloque{
-  
-  width: 100%;
-  padding: 60px;
-}
-
 
 /*
 @media (max-width: 1700px) {
@@ -469,6 +463,12 @@ footer{
     border-radius: 20px;
   }
 
+  .snap__bloque{
+  
+    width: 100%;
+    padding: 60px;
+  }
+
 }
 
 
@@ -481,8 +481,8 @@ footer{
   :root {
       /* Text sizes */
       --size-xs: 14px;
-      --size-sm: 14px;
-      --size-md: 16px;
+      --size-sm: 15px;
+      --size-md: 17px;
       --size-lg: 20px;
       --size-xl: 26px;
       --size-2xl: 32px;
@@ -491,9 +491,13 @@ footer{
   }
 
   #videoHolder{
-    width: 100vw !important;
+    width: calc(100vw - 40px) !important;
     height: 40vh !important;
     background-color: #032526;
+    left: 20px;
+    position: relative;
+    border-radius: 20px 20px 0px 0px;
+    overflow: hidden;
   }
 
   #innerVideoHolder{
@@ -501,12 +505,22 @@ footer{
     height: 100%;
   }
 
+  .logo{
+    margin-top: -8px;
+  }
+
+  .cotizaBtn{
+    font-size: 0;
+    gap: 0;
+    margin-left: 0px;
+  }
+
   footer .column1{
     width: 100%;
     padding: 30px;
   }
   footer span, footer a{
-    font-size: 14px;
+    font-size: 14px !important;
     line-height: 1;
   }
 
