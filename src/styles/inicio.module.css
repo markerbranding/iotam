@@ -1003,6 +1003,7 @@
                 grid-gap: 30px;
                 .industria{
                     height: 100%;
+                    aspect-ratio: 3/4;
                     img{
                         width: 65px;
                     }
@@ -1272,6 +1273,7 @@
                 grid-column-gap: 0px;
                 .industria{
                     grid-column: span 4;
+                    aspect-ratio: 3/3.5;
                     img{
                         width: 60px;
                         margin-bottom: 20px;
